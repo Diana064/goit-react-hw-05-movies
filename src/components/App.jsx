@@ -1,3 +1,27 @@
-export const App = () => {
-  return <div>React homework template</div>;
-};
+import { Route, Routes } from 'react-router';
+import Navigation from './Navigation';
+import { Suspense, lazy } from 'react';
+
+const Home = lazy(() => import('./pages/Home'));
+const Movies = lazy(() => import('./pages/Movies'));
+const MovieDetails = lazy(() => import('./pages/MovieDetails'));
+const Cast = lazy(() => import('./Cast/Cast'));
+const Reviews = lazy(() => import('./Reviews/Reviews'));
+
+export default function App() {
+  return (
+    <>
+      <Navigation />
+      {/* <Suspense fallback={<div>Loading...</div>}> */}
+      <Routes>
+        <Route index element={<Home />} />
+        <Route path="/movies" element={<Movies />} />
+        <Route path="/movies/:movieId" element={<MovieDetails />}>
+          <Route path="cast" element={<Cast />} />
+          <Route path="reviews" element={<Reviews />} />
+        </Route>
+      </Routes>
+      {/* </Suspense> */}
+    </>
+  );
+}
