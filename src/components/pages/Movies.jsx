@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import Search from '../Search/Search';
-import { MoviesList } from 'components/MoviesList/MoviesList';
+import MoviesList from 'components/MoviesList/MoviesList';
 import * as ImageService from '../services/api';
 import { useSearchParams } from 'react-router-dom';
 

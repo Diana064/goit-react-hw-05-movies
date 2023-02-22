@@ -1,9 +1,9 @@
 import { useState, useEffect } from 'react';
 import * as ImageService from '../services/api';
 
-import { MoviesList } from '../MoviesList/MoviesList';
+import MoviesList from '../MoviesList/MoviesList';
 
-export const Home = () => {
+export default function Home() {
   const [movies, setMovies] = useState([]);
 
   useEffect(() => {
@@ -14,4 +14,4 @@ export const Home = () => {
       <MoviesList movies={movies} />
     </>
   );
-};
+}

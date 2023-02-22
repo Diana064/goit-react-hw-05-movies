@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import * as ImageService from '../services/api';
 import { useParams } from 'react-router';
 
-export const Reviews = () => {
+export default function Reviews() {
   const [reviews, setReviews] = useState([]);
   const { movieId } = useParams();
   useEffect(() => {
@@ -20,4 +20,4 @@ export const Reviews = () => {
       </ul>
     </>
   );
-};
+}

@@ -5,7 +5,7 @@ import { Outlet } from 'react-router';
 import { NavLink, useNavigate, useLocation } from 'react-router-dom';
 
 const BASE_IMG_URL = 'https://image.tmdb.org/t/p/w500/';
-export const MovieDetails = () => {
+export default function MovieDetails() {
   const [movies, setMovies] = useState(null);
   const { movieId } = useParams();
   const navigate = useNavigate();
@@ -41,4 +41,4 @@ export const MovieDetails = () => {
       <Outlet />
     </>
   );
-};
+}
