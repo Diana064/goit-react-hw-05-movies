@@ -7,7 +7,6 @@ export default function Reviews() {
   const { movieId } = useParams();
   useEffect(() => {
     ImageService.getMovieReviews(movieId).then(setReviews);
-    console.log(reviews);
   }, [movieId]);
   return (
     <>

@@ -22,7 +22,7 @@ export default function Movies() {
 
   return (
     <>
-      <Search onSubmit={onSubmit} />;
+      <Search onSubmit={onSubmit} />
       <MoviesList movies={movies} />
     </>
   );

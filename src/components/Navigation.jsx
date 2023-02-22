@@ -10,7 +10,9 @@ export default function Navigation() {
       </NavLink>
       <NavLink to="/movies">Movies</NavLink>
       <Suspense fallback={<div>Loading...</div>}>
-        <Outlet />
+        <main>
+          <Outlet />
+        </main>
       </Suspense>
     </nav>
   );
