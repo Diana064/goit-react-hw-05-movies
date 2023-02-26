@@ -1,16 +1,17 @@
-import { NavLink, useLocation } from 'react-router-dom';
+import { useLocation } from 'react-router-dom';
+import { UlList, LiStyle, StyledLink } from './MoviesList.module';
 
 export default function MoviesList({ movies }) {
   const location = useLocation();
   return (
-    <ul>
+    <UlList>
       {movies.map(({ id, title }) => (
-        <li key={id}>
-          <NavLink to={`/movies/${id}`} state={{ from: location }}>
+        <LiStyle key={id}>
+          <StyledLink to={`/movies/${id}`} state={{ from: location }}>
             {title}
-          </NavLink>
-        </li>
+          </StyledLink>
+        </LiStyle>
       ))}
-    </ul>
+    </UlList>
   );
 }

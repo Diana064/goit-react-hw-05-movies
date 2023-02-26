@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import { useSearchParams } from 'react-router-dom';
+import { FormStyled, InputStyled, ButtonStyled } from './Search.module';
+
 // import css from './Searchbar.module.css';
 
 export default function Search({ onSubmit }) {
@@ -26,20 +27,18 @@ export default function Search({ onSubmit }) {
   };
 
   return (
-    <header className="">
-      <form className="" onSubmit={handleSubmit}>
-        <button type="submit" className="">
-          Search
-        </button>
+    <FormStyled className="" onSubmit={handleSubmit}>
+      <ButtonStyled type="submit" className="">
+        Search
+      </ButtonStyled>
 
-        <input
-          className=""
-          type="text"
-          placeholder="Search images and photos"
-          value={name}
-          onChange={handleNameChange}
-        />
-      </form>
-    </header>
+      <InputStyled
+        className=""
+        type="text"
+        placeholder="Search images and photos"
+        value={name}
+        onChange={handleNameChange}
+      />
+    </FormStyled>
   );
 }

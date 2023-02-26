@@ -2,9 +2,14 @@ import { useState, useEffect } from 'react';
 import * as ImageService from '../services/api';
 import { useParams } from 'react-router';
 import { Outlet } from 'react-router';
-import { NavLink, useNavigate, useLocation } from 'react-router-dom';
+import { useNavigate, useLocation } from 'react-router-dom';
+import MovieData from 'components/MovieData/MovieData';
+import {
+  WrapperButton,
+  WrapperContext,
+  StyledLink,
+} from './MovieDetails.module';
 
-const BASE_IMG_URL = 'https://image.tmdb.org/t/p/w500/';
 export default function MovieDetails() {
   const [movies, setMovies] = useState(null);
   const { movieId } = useParams();
@@ -22,22 +27,25 @@ export default function MovieDetails() {
   }
   return (
     <>
-      <h1>MovieDetails</h1>
-      <button type="button" onClick={handleGoBack}>
-        Go back
-      </button>
-      <h2>{movies.title}</h2>
-      <img
-        src={`${BASE_IMG_URL + movies.poster_path}`}
-        alt={movies.title}
-      ></img>
-
-      <NavLink to="cast" state={location.state}>
-        cast
-      </NavLink>
-      <NavLink to="reviews" state={location.state}>
-        reviews
-      </NavLink>
+      <MovieData
+        handleGoBack={handleGoBack}
+        img={movies.poster_path}
+        title={movies.title}
+        average={movies.vote_average}
+        genres={movies.genres}
+        overview={movies.overview}
+      />
+      <WrapperContext>
+        <h2>Aditional Information: </h2>
+        <WrapperButton>
+          <StyledLink to="cast" state={location.state}>
+            Сast
+          </StyledLink>
+          <StyledLink to="reviews" state={location.state}>
+            Reviews
+          </StyledLink>
+        </WrapperButton>
+      </WrapperContext>
       <Outlet />
     </>
   );
