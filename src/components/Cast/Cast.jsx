@@ -15,7 +15,12 @@ export default function Cast() {
         <CastList>
           {casts.map(({ profile_path, id, name, character }) => (
             <li key={id}>
-              <CastImg src={`${BASE_IMG_URL}${profile_path}`} alt={name} />
+              {profile_path ? (
+                <CastImg src={`${BASE_IMG_URL}${profile_path}`} alt={name} />
+              ) : (
+                <CastImg src="https://upload.wikimedia.org/wikipedia/commons/1/14/No_Image_Available.jpg?20200913095930" />
+              )}
+
               <p> {name}</p>
               <p>Character: {character}</p>
             </li>

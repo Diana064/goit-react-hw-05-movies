@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import * as ImageService from '../services/api';
+import * as ImageService from '../components/services/api';
 import { useParams } from 'react-router';
 import { Outlet } from 'react-router';
 import { useNavigate, useLocation } from 'react-router-dom';
